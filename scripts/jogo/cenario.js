@@ -26,15 +26,6 @@ class Cenario {
       this.indiceImagemAtual = this.indiceImagemAtual ^ 1;
     }
   }
-  
-  gameMenu() {
-    image(Assets.get('game-menu'), 0, 0, width, height);
-  }
-  
-  gameOver() {
-    background('black');
-    image(Assets.get('game-over'), (width - 700)/2, 0, 700, 537);
-  }
 
   reset() {
     this.x1 = 0;

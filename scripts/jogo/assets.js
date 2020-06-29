@@ -8,4 +8,22 @@ class Assets {
   static get(nome) {
     return assets[nome];
   }
+
+  static preload() {
+    Assets.adicionar('cenario', loadImage('imagens/cenario/floresta.png'));
+    Assets.adicionar('cenarioNoite', loadImage('imagens/cenario/floresta_noite.png'));
+    Assets.adicionar('imgPersonagem', loadImage('imagens/personagem/horse_running.png'));
+    Assets.adicionar('somTrilha', loadSound('sons/erlkonig.mp3'));
+    Assets.adicionar('somPulo', loadSound('sons/somPulo.mp3'));
+    Assets.adicionar('game-over', loadImage('imagens/assets/erlkonig_start.jpg'));
+    Assets.adicionar('game-menu', loadImage('imagens/assets/erlkonig.jpg'));
+    Assets.adicionar('cachorro', loadImage('imagens/inimigos/cachorro.png'));
+    Assets.adicionar('wizard', loadImage('imagens/inimigos/wizard.png'));
+  }
+}
+
+class Sprite {
+  constructor(imagem, alturaSprite, larguraSprite) {
+    this.frameAtual = 0; 
+  }
 }
