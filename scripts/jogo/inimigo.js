@@ -2,6 +2,7 @@ class Inimigo extends Animacao {
   constructor(matriz, imagem, x, variacaoY, largura, altura, larguraSprite, alturaSprite, velocidade, delay){
     super(matriz, Assets.get(imagem), x, variacaoY, largura, altura, larguraSprite, alturaSprite);
     
+    this.xInicial = x;
     this.velocidade = velocidade;
     this.delay = delay;
   }
@@ -15,6 +16,6 @@ class Inimigo extends Animacao {
   
   reset() {
     super.reset();
-    this.x = width + this.largura;
+    this.x = this.xInicial;
   }
 }

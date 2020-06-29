@@ -1,8 +1,10 @@
 let cenario;
 let personagem;
 let pontuacao;
+let inimigoAtual = 0;
 
 let isGameOver = false;
+let isGameMenu = true;
 
 const matrizPersonagem = [
 [0,0],[196,0],[196*2,0],[196*3,0],[196*4,0],[196*5,0],[196*6,0],[196*7,0]
@@ -39,7 +41,8 @@ function preload() {
   Assets.adicionar('imgPersonagem', loadImage('imagens/personagem/horse_running.png'));
   Assets.adicionar('somTrilha', loadSound('sons/erlkonig.mp3'));
   Assets.adicionar('somPulo', loadSound('sons/somPulo.mp3'));
-  Assets.adicionar('game-start', loadImage('imagens/assets/erlkonig_start.jpg'));
+  Assets.adicionar('game-over', loadImage('imagens/assets/erlkonig_start.jpg'));
+  Assets.adicionar('game-menu', loadImage('imagens/assets/erlkonig.jpg'));
   Assets.adicionar('cachorro', loadImage('imagens/inimigos/cachorro.png'));
   Assets.adicionar('wizard', loadImage('imagens/inimigos/wizard.png'));
 }
@@ -55,13 +58,18 @@ function setup() {
   const cachorro = new Inimigo(matrizInimigo, 'cachorro', width + 52, 15, 67*2, 32*2, 67, 32, 12, 300);
   const wizard = new Inimigo(matrizInimigoGrande, 'wizard', width + 300, 0, 120, 120, 80, 80, 8, 200);
   inimigos.push(cachorro, wizard);
-
-  iniciaTrilhaSonora();
+  
+  cenario.gameMenu();
 }
 
 function keyPressed() {
-  if (key === 'Enter' && isGameOver) {
-    recomecar();
+  if (key === 'Enter') {
+    if (isGameOver) {
+      recomecar();
+    } else if (isGameMenu) {
+      isGameMenu = false;
+      iniciaTrilhaSonora();
+    }
   } else if (!isGameOver) {
     if (key === 'ArrowUp'){
       personagem.pula();
@@ -70,6 +78,8 @@ function keyPressed() {
 }
 
 function draw() {
+  if (isGameMenu) return;
+  
   cenario.move();
   personagem.anima();
   personagem.aplicaGravidade();
@@ -77,12 +87,22 @@ function draw() {
   pontuacao.exibe();
   pontuacao.pontuar();
   
-  for(let i = 0; i < inimigos.length; i++) {
-    inimigos[i].move();
-    if (personagem.estaColidindo(inimigos[i])) {
-      gameOver();
+  const inimigo = inimigos[inimigoAtual];
+  const inimigoVisivel = inimigo.x < -inimigo.largura;
+   
+  inimigo.exibe();
+  inimigo.move();
+  
+  if (inimigoVisivel) {
+    inimigoAtual++;
+    if (inimigoAtual >= inimigos.length) {
+      inimigoAtual = 0;
     }
-    inimigos[i].exibe(); // sempre exibir o inimigo na tela de game over
+    inimigo.velocidade = parseInt(random(10,30));
+  }
+  
+  if (personagem.estaColidindo(inimigo)) {
+    gameOver();
   }
   personagem.exibe();
 }
@@ -90,6 +110,7 @@ function draw() {
 function gameOver() { 
   isGameOver = true;
   cenario.gameOver();
+  pontuacao.exibe();
   noLoop();
 }
 
@@ -105,5 +126,5 @@ function recomecar() {
 
 function iniciaTrilhaSonora() {
   Assets.get('somTrilha').playMode('restart');
-  Assets.get('somTrilha').loop();
+  Assets.get('somTrilha').play();
 }

@@ -8,8 +8,8 @@ class Cenario {
   }
   
   exibe() {
-      image(this.imagens[this.indiceImagemAtual], this.x1, 0, width, height);
-      image(this.imagens[this.indiceImagemAtual], this.x2, 0, width, height);
+    image(this.imagens[this.indiceImagemAtual], this.x1, 0, width, height);
+    image(this.imagens[this.indiceImagemAtual], this.x2, 0, width, height);
   }
   
   move() {
@@ -27,9 +27,13 @@ class Cenario {
     }
   }
   
+  gameMenu() {
+    image(Assets.get('game-menu'), 0, 0, width, height);
+  }
+  
   gameOver() {
     background('black');
-    image(Assets.get('game-start'), (width - 700)/2, (height - 537)/2, 700, 537);
+    image(Assets.get('game-over'), (width - 700)/2, 0, 700, 537);
   }
 
   reset() {

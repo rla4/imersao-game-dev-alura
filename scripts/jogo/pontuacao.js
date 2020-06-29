@@ -13,8 +13,8 @@ class Pontuacao {
         textSize(50);
         text(parseInt(this.valor), width - 30, 50);
     }
-
+    
     reset() {
-        this.valor = 0;
+      this.valor = 0;
     }
 }
