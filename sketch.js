@@ -4,7 +4,7 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  setFrameRate(40);
+  frameRate(40);
 
   jogo = new Jogo();
   menuInicial = new MenuInicial(jogo);

@@ -6,6 +6,7 @@ let personagem;
 let pontuacao;
 let cenaAtual;
 let cenas;
+let vida;
 
 const matrizPersonagem = [
 [0,0],[0,0],[196,0],[196,0],[196*2,0],[196*2,0],[196*3,0],[196*3,0],[196*4,0],[196*4,0],[196*5,0],[196*5,0],

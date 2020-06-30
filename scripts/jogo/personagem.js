@@ -11,6 +11,7 @@ class Personagem extends Animacao {
     this.maxPulos = 2;
     this.pulosAtivos = 0;
     this.alturaDoPulo = -45;
+    this.isInvencivel = false;
   }
   
   pula(){
@@ -33,8 +34,17 @@ class Personagem extends Animacao {
       this.pulosAtivos = 0;
     }
   }
+
+  ficaInvencivel() {
+    this.isInvencivel = true;
+    setTimeout(() => {
+      this.isInvencivel = false;
+    }, 1500);
+  }
   
   estaColidindo(inimigo) {
+    if (this.isInvencivel) return false;
+
     const precisao = 0.7;
     
     return collideRectRect(

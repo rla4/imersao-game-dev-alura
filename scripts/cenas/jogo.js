@@ -7,6 +7,7 @@ class Jogo {
         cenario = new Cenario(['cenario','cenarioNoite'], 20);
         personagem = new Personagem(matrizPersonagem, 'imgPersonagem', 0, 15, 2*196,2*128,196,128);
         pontuacao = new Pontuacao();
+        vida = new Vida(3, 3);
 
         const cachorro = new Inimigo(matrizInimigo, 'cachorro', width + 52, 15, 67*2*2, 32*2*2, 67, 32, 12*2, 300);
         const wizard = new Inimigo(matrizInimigoGrande, 'wizard', width + 300, 0, 120*2, 120*2, 80, 80, 18*2, 200);
@@ -26,6 +27,8 @@ class Jogo {
         
         inimigo.exibe();
         inimigo.move();
+
+        vida.draw();
         
         if (isInimigoForaDaTela) {
             this.inimigoAtual++;
@@ -36,7 +39,8 @@ class Jogo {
         }
         
         if (personagem.estaColidindo(inimigo)) {
-            mudaEstadoJogo('gameOver');
+            vida.morreu();
+            personagem.ficaInvencivel();
         }
         personagem.exibe();
     }
@@ -54,6 +58,7 @@ class Jogo {
     recomecar() {
         cenario.reset();
         pontuacao.reset();
+        vida.reset();
         inimigos.forEach(i => {
             i.reset();
         });

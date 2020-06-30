@@ -19,6 +19,7 @@ class Assets {
     Assets.adicionar('game-menu', loadImage('imagens/assets/erlkonig.jpg'));
     Assets.adicionar('cachorro', loadImage('imagens/inimigos/cachorro.png'));
     Assets.adicionar('wizard', loadImage('imagens/inimigos/wizard.png'));
+    Assets.adicionar('vida', loadImage('imagens/assets/vida.png'));
   }
 }
 
