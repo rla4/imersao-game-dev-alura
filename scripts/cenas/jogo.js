@@ -1,6 +1,6 @@
 class Jogo {
     constructor(){
-        this.inimigoAtual = 0;
+        ];
     }
 
     setup(){
@@ -9,8 +9,8 @@ class Jogo {
         pontuacao = new Pontuacao();
         vida = new Vida(3, 3);
 
-        const cachorro = new Inimigo(matrizInimigo, 'cachorro', width + 52, 15, 67*2*2, 32*2*2, 67, 32, 12*2, 300);
-        const wizard = new Inimigo(matrizInimigoGrande, 'wizard', width + 300, 0, 120*2, 120*2, 80, 80, 18*2, 200);
+        const cachorro = new Inimigo(matrizInimigo, 'cachorro', width + 52, 15, 67*2*2, 32*2*2, 67, 32, 12*2);
+        const wizard = new Inimigo(matrizInimigoGrande, 'wizard', width + 300, 0, 120*2, 120*2, 80, 80, 18*2);
         inimigos.push(cachorro, wizard);
     }
 
@@ -22,20 +22,22 @@ class Jogo {
         pontuacao.exibe();
         pontuacao.pontuar();
         
-        const inimigo = inimigos[this.inimigoAtual];
+        const linhaAtual = this.mapa[this.indiceMapaAtual];
+        const inimigo = inimigos[linhaAtual.inimigo];
         const isInimigoForaDaTela = inimigo.x < -inimigo.largura;
         
+        inimigo.velocidade = linhaAtual.velocidade;
         inimigo.exibe();
         inimigo.move();
 
         vida.draw();
         
         if (isInimigoForaDaTela) {
-            this.inimigoAtual++;
-            if (this.inimigoAtual >= inimigos.length) {
-            this.inimigoAtual = 0;
+            this.indiceMapaAtual++;
+            inimigo.aparece();
+            if (this.indiceMapaAtual >= this.mapa.length) {
+                this.indiceMapaAtual = 0;
             }
-            inimigo.velocidade = parseInt(random(25,40));
         }
         
         if (personagem.estaColidindo(inimigo)) {
