@@ -4,12 +4,12 @@ class Jogo {
     }
 
     setup(){
-        cenario = new Cenario(['cenario','cenarioNoite'], 10);
-        personagem = new Personagem(matrizPersonagem, 'imgPersonagem', 0, 15, 196,128,196,128);
+        cenario = new Cenario(['cenario','cenarioNoite'], 20);
+        personagem = new Personagem(matrizPersonagem, 'imgPersonagem', 0, 15, 2*196,2*128,196,128);
         pontuacao = new Pontuacao();
 
-        const cachorro = new Inimigo(matrizInimigo, 'cachorro', width + 52, 15, 67*2, 32*2, 67, 32, 12, 300);
-        const wizard = new Inimigo(matrizInimigoGrande, 'wizard', width + 300, 0, 120, 120, 80, 80, 8, 200);
+        const cachorro = new Inimigo(matrizInimigo, 'cachorro', width + 52, 15, 67*2*2, 32*2*2, 67, 32, 12*2, 300);
+        const wizard = new Inimigo(matrizInimigoGrande, 'wizard', width + 300, 0, 120*2, 120*2, 80, 80, 18*2, 200);
         inimigos.push(cachorro, wizard);
     }
 
@@ -32,7 +32,7 @@ class Jogo {
             if (this.inimigoAtual >= inimigos.length) {
             this.inimigoAtual = 0;
             }
-            inimigo.velocidade = parseInt(random(10,30));
+            inimigo.velocidade = parseInt(random(25,40));
         }
         
         if (personagem.estaColidindo(inimigo)) {
