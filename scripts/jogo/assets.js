@@ -15,6 +15,7 @@ class Assets {
     Assets.adicionar('imgPersonagem', loadImage('imagens/personagem/horse_running.png'));
     Assets.adicionar('somTrilha', loadSound('sons/erlkonig.mp3'));
     Assets.adicionar('somPulo', loadSound('sons/somPulo.mp3'));
+    Assets.adicionar('somHit', loadSound('sons/hit.wav'));
     Assets.adicionar('game-over', loadImage('imagens/assets/erlkonig_start.jpg'));
     Assets.adicionar('game-menu', loadImage('imagens/assets/erlkonig.jpg'));
     Assets.adicionar('cachorro', loadImage('imagens/inimigos/cachorro.png'));

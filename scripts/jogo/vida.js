@@ -4,6 +4,7 @@ class Vida {
         this.vidaMaxima = vidaMaxima;
         this.vidaAtual = vidaInicial;
         this.imagem = Assets.get('vida');
+        this.somHit = Assets.get('somHit');
     }
 
     draw() {
@@ -21,6 +22,7 @@ class Vida {
 
     morreu() {
         this.vidaAtual--;
+        this.somHit.play();
         if (this.vidaAtual <= 0) {
             mudaEstadoJogo('gameOver');
         }
