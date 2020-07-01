@@ -3,7 +3,7 @@ function preload() {
 }
 
 function setup() {
-  p5.disableFriendlyErrors = true;
+  pixelDensity(1);
   createCanvas(windowWidth, windowHeight);
   frameRate(40);
 

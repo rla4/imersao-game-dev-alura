@@ -5,7 +5,18 @@ class Jogo {
     }
 
     setup(){
-        cenario = new Cenario(['cenarioNoite'], 20);
+        cenario = new Cenario(
+            ['cenarioLayer1',
+                'cenarioLayer2',
+                'cenarioLayer3',
+                'cenarioLayer4',
+            'cenarioLayer5',
+            'cenarioLayer6',
+            'cenarioLayer7',
+            'cenarioLayer8',
+            'cenarioLayer9',
+            'cenarioLayer10'], 
+            [0, 3, 5, 8, 10, 12, 15, 20, 22, 25]);
         personagem = new Personagem(matrizPersonagem, 'imgPersonagem', 0, 15, 2*196,2*128,196,128);
         pontuacao = new Pontuacao();
         vida = new Vida(3, 3);

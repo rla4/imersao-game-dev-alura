@@ -1,17 +1,44 @@
 class Cenario {
-  constructor(imagens, velocidade) {
-    this.imagens = imagens.map(Assets.get);
-    this.velocidade = velocidade;
-    this.x1 = 0;
-    this.x2 = width;
-    this.indiceImagemAtual = 0;
+  constructor(imagens, velocidades) {
+    this.layers = [];
+
+    for (let i = 0; i < imagens.length; i++) {
+      this.layers.push(new LayerCenario(Assets.get(imagens[i]), velocidades[i]));
+    }
   }
   
   exibe() {
-    image(this.imagens[this.indiceImagemAtual], this.x1, 0, width, height);
-    image(this.imagens[this.indiceImagemAtual], this.x2, 0, width, height);
+    for (let i = 0; i < this.layers.length; i++) {
+      this.layers[i].exibe();
+    }
   }
   
+  move() {
+    for (let i = 0; i < this.layers.length; i++) {
+      this.layers[i].move();
+    }
+  }
+
+  reset() {
+    for (let i = 0; i < this.layers.length; i++) {
+      this.layers[i].reset();
+    }
+  }
+}
+
+class LayerCenario {
+  constructor(imagem, velocidade) {
+    this.imagem = imagem;
+    this.velocidade = velocidade;
+    this.x1 = 0;
+    this.x2 = width;
+  }
+
+  exibe(){
+    image(this.imagem, this.x1, 0, width, height);
+    image(this.imagem, this.x2, 0, width, height);
+  }
+
   move() {
     this.x1 -= this.velocidade;
     this.x2 -= this.velocidade;

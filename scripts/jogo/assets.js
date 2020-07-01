@@ -11,6 +11,20 @@ class Assets {
 
   static preload() {
     Assets.adicionar('cenarioNoite', loadImage('imagens/cenario/floresta_noite.png'));
+
+    // parallax - 10 layers!
+    Assets.adicionar('cenarioLayer10', loadImage('imagens/cenario/01_Mist.png'));
+    Assets.adicionar('cenarioLayer9', loadImage('imagens/cenario/02_Bushes.png'));
+    Assets.adicionar('cenarioLayer8', loadImage('imagens/cenario/03_Particles.png'));
+    Assets.adicionar('cenarioLayer7', loadImage('imagens/cenario/04_Forest.png'));
+    Assets.adicionar('cenarioLayer6', loadImage('imagens/cenario/05_Particles.png'));
+    Assets.adicionar('cenarioLayer5', loadImage('imagens/cenario/06_Forest.png'));
+    Assets.adicionar('cenarioLayer4', loadImage('imagens/cenario/07_Forest.png'));
+    Assets.adicionar('cenarioLayer3', loadImage('imagens/cenario/08_Forest.png'));
+    Assets.adicionar('cenarioLayer2', loadImage('imagens/cenario/09_Forest.png'));
+    Assets.adicionar('cenarioLayer1', loadImage('imagens/cenario/10_Sky.png'));
+
+
     Assets.adicionar('imgPersonagem', loadImage('imagens/personagem/horse_running.png'));
     Assets.adicionar('somTrilha', loadSound('sons/erlkonig.mp3'));
     Assets.adicionar('somPulo', loadSound('sons/somPulo.mp3'));
