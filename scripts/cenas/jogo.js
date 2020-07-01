@@ -14,9 +14,9 @@ class Jogo {
             'cenarioLayer6',
             'cenarioLayer7',
             'cenarioLayer8',
-            'cenarioLayer9',
-            'cenarioLayer10'], 
-            [0, 3, 5, 8, 10, 12, 15, 20, 22, 25]);
+            'cenarioLayer9'
+        ], 
+            [0, 1, 1.5, 2, 3, 5, 8, 10, 15]);
         personagem = new Personagem(matrizPersonagem, 'imgPersonagem', 0, 15, 2*196,2*128,196,128);
         pontuacao = new Pontuacao();
         vida = new Vida(3, 3);
@@ -27,10 +27,10 @@ class Jogo {
     }
 
     draw() {
-        cenario.move();
         personagem.anima();
         personagem.aplicaGravidade();
         cenario.exibe();
+        cenario.move();
         pontuacao.exibe();
         pontuacao.pontuar();
         
