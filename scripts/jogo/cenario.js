@@ -21,15 +21,11 @@ class Cenario {
     }
     if (this.x2 < -width) {
       this.x2 = width;
-      
-      // alternar cenario dia/noite
-      this.indiceImagemAtual = this.indiceImagemAtual ^ 1;
     }
   }
 
   reset() {
     this.x1 = 0;
     this.x2 = width;
-    this.indiceImagemAtual = 0;
   }
 }

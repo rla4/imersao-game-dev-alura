@@ -10,7 +10,6 @@ class Assets {
   }
 
   static preload() {
-    Assets.adicionar('cenario', loadImage('imagens/cenario/floresta.png'));
     Assets.adicionar('cenarioNoite', loadImage('imagens/cenario/floresta_noite.png'));
     Assets.adicionar('imgPersonagem', loadImage('imagens/personagem/horse_running.png'));
     Assets.adicionar('somTrilha', loadSound('sons/erlkonig.mp3'));
