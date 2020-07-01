@@ -3,6 +3,7 @@ function preload() {
 }
 
 function setup() {
+  p5.disableFriendlyErrors = true;
   createCanvas(windowWidth, windowHeight);
   frameRate(40);
 
@@ -26,6 +27,11 @@ function keyPressed() {
 
 function draw() {
   cenas[cenaAtual].draw();
+
+  let fps = frameRate();
+  fill(255);
+  stroke(0);
+  text("FPS: " + fps.toFixed(2), width - 60, height - 10);
 }
 
 function mudaEstadoJogo(cena) {

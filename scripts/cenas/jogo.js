@@ -1,6 +1,7 @@
 class Jogo {
     constructor(){
-        ];
+        this.indiceMapaAtual = 0;
+        this.mapa = Assets.get('level').mapa;
     }
 
     setup(){
