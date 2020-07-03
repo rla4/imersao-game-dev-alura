@@ -6,7 +6,7 @@
     "mapa": [
         {
             "inimigo": 0,
-            "velocidade": 15
+            "velocidade": 25
         },
         {
             "inimigo": 1,
@@ -14,7 +14,7 @@
         },
         {
             "inimigo": 1,
-            "velocidade": 20
+            "velocidade": 23
         },
         {
             "inimigo": 0,

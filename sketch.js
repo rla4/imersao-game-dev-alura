@@ -7,7 +7,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   frameRate(40);
 
-  jogo = new Jogo();
+  jogo = new Jogo(Assets.get('level'));
   menuInicial = new MenuInicial(jogo);
   gameOver = new GameOver(jogo);
 
@@ -27,7 +27,10 @@ function keyPressed() {
 
 function draw() {
   cenas[cenaAtual].draw();
+  // drawFps();
+}
 
+function drawFps() {
   let fps = frameRate();
   fill(255);
   stroke(0);

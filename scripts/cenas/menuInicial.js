@@ -11,6 +11,7 @@ class MenuInicial {
     keyPressed(key) {
         if (key === 'Enter') {
             jogo.iniciaTrilhaSonora();
+            jogo.iniciaCountdown();
             mudaEstadoJogo('jogo');
         }
     }

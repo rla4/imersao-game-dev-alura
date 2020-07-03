@@ -13,7 +13,7 @@ class GameOver {
 
     draw() {
         background('black');
-        image(Assets.get('game-over'), (width - 700)/2, 0, 700, 537);
+        image(Assets.get('game-over'), (width - 700)/2, (height - 700)/2, 700, 537);
 
         // necessario para re-exibir a pontuacao atual e o personagem
         this.jogo.gameOver();
