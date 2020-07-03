@@ -12,6 +12,9 @@ class Personagem extends Animacao {
     this.pulosAtivos = 0;
     this.alturaDoPulo = -45;
     this.isInvencivel = false;
+
+    this.imagemCorrendo = Assets.get(imagem);
+    this.imagemDano = Assets.get('imgPersonagemDano');
   }
   
   pula(){
@@ -37,7 +40,9 @@ class Personagem extends Animacao {
 
   ficaInvencivel() {
     this.isInvencivel = true;
+    this.imagem = this.imagemDano;
     setTimeout(() => {
+      this.imagem = this.imagemCorrendo;
       this.isInvencivel = false;
     }, 1500);
   }

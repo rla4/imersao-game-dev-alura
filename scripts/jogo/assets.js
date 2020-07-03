@@ -26,6 +26,7 @@ class Assets {
 
 
     Assets.adicionar('imgPersonagem', loadImage('imagens/personagem/horse_running.png'));
+    Assets.adicionar('imgPersonagemDano', loadImage('imagens/personagem/horse_running_hit.png'));
     Assets.adicionar('somTrilha', loadSound('sons/erlkonig.mp3'));
     Assets.adicionar('somPulo', loadSound('sons/somPulo.mp3'));
     Assets.adicionar('somHit', loadSound('sons/hit.wav'));
